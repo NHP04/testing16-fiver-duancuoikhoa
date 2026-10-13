@@ -5,7 +5,12 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import utils.CsvReader;
+
+import java.io.IOException;
+import java.util.List;
 
 public class LoginTest extends BaseTest{
 
@@ -28,4 +33,26 @@ public class LoginTest extends BaseTest{
         Assert.assertTrue(currentUrl.contains("login"));
         Assert.assertFalse(currentUrl.contains("profile"));
     }
+
+    @DataProvider(name = "loginData")
+    public Object[][] loginDataProvider() throws IOException {
+        String filePath = "src/test/resources/loginData.csv";
+
+        List<String[]> data = CsvReader.readCsv(filePath);
+        return CsvReader.toDataProviderArray(data);
+    }
+
+    @Test(description = "Test login data provider", dataProvider = "loginData")
+    public void testDataLogin(String email, String password, String expectedResult) throws InterruptedException{
+        LoginPage loginPage = new LoginPage(driver,wait);
+        loginPage.login(email,password);
+
+        if(expectedResult.equalsIgnoreCase("sucess")){
+            String currentUrl = driver.getCurrentUrl();
+            Assert.assertTrue(currentUrl.contains("profile"));
+        }else {
+            Assert.assertTrue(driver.getCurrentUrl().contains("login"));
+        }
+    }
+
 }
