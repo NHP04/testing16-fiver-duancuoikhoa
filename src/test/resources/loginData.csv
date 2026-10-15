@@ -1,5 +1,12 @@
 email,password,expectedResult
-Fiver04@gmail.com,fiver123,sucess
+Fiver04@gmail.com,fiver123,success
 Fiver04@gmail.com,admin123,fail
 Huyhung@gmail.com,fiver123,fail
 Huyhung@gmail.com,admin123,fail
+,fiver123,email_empty
+abc,fiver123,email_invalid
+Fiver04@gmail.com,,password_empty
+,,both_empty
+Fiver04@gmail.com,123,password_length
+Fiver04@gmail.com,123456789012345678901234567890123,password_length
+

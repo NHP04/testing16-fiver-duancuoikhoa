@@ -55,11 +55,41 @@ public class LoginTest extends BaseTest{
         LoginPage loginPage = new LoginPage(getDriver(),getWait());
         loginPage.login(email,password);
 
-        if(expectedResult.equalsIgnoreCase("sucess")){
-            String currentUrl = getDriver().getCurrentUrl();
-            Assert.assertTrue(currentUrl.contains("profile"));
-        }else {
-            Assert.assertTrue(getDriver().getCurrentUrl().contains("login"));
+        switch (expectedResult.toLowerCase()) {
+
+            case "success":
+                Assert.assertTrue(
+                        getDriver().getCurrentUrl().contains("profile"));
+                break;
+
+            case "fail":
+                Assert.assertTrue(
+                        getDriver().getCurrentUrl().contains("login"));
+                break;
+
+            case "email_empty":
+                Assert.assertTrue(loginPage.isEmailEmptyMessageDisplayed());
+                break;
+
+            case "email_invalid":
+                Assert.assertTrue(loginPage.isEmailErrorMessageDisplayed());
+                break;
+
+            case "password_empty":
+                Assert.assertTrue(loginPage.isPasswordEmptyMessageDisplayed());
+                break;
+
+            case "password_length":
+                Assert.assertTrue(loginPage.isPasswordLengthErrorMessageDisplayed());
+                break;
+
+            case "both_empty":
+                Assert.assertTrue(loginPage.isEmailEmptyMessageDisplayed());
+                Assert.assertTrue(loginPage.isPasswordEmptyMessageDisplayed());
+                break;
+
+            default:
+                Assert.fail("expectedResult không hợp lệ: " + expectedResult);
         }
     }
 
