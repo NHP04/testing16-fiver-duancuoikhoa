@@ -23,7 +23,7 @@ public class ProfilePage extends BasePage {
         WebElement editbutton = driver.findElement(EDIT_BUTTON);
         highLight(editbutton);
         editbutton.click();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         unhightlight(editbutton);
     }
 
@@ -32,7 +32,7 @@ public class ProfilePage extends BasePage {
         highLight(nameInput);
         nameInput.sendKeys(Keys.CONTROL, "a");
         nameInput.sendKeys(name);
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         unhightlight(nameInput);
     }
 
@@ -41,7 +41,7 @@ public class ProfilePage extends BasePage {
         highLight(phoneInput);
         phoneInput.sendKeys(Keys.CONTROL, "a");
         phoneInput.sendKeys(phone);
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         unhightlight(phoneInput);
     }
 
@@ -50,7 +50,7 @@ public class ProfilePage extends BasePage {
         highLight(birthdayInput);
         birthdayInput.sendKeys(Keys.CONTROL, "a");
         birthdayInput.sendKeys(birthday);
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         unhightlight(birthdayInput);
     }
 
@@ -58,7 +58,7 @@ public class ProfilePage extends BasePage {
         WebElement savebutton = driver.findElement(SAVE_BUTTON);
         highLight(savebutton);
         savebutton.click();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         unhightlight(savebutton);
     }
 

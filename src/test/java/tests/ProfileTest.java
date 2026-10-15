@@ -13,17 +13,17 @@ public class ProfileTest extends BaseTest{
 
     @BeforeMethod
     private void loginAndOpenProfilePage() throws InterruptedException{
-        LoginPage loginPage = new LoginPage(driver,wait);
+        LoginPage loginPage = new LoginPage(getDriver(),getWait());
         loginPage.login("Fiver04@gmail.com","fiver123");
 
-        profilePage = new ProfilePage(driver,wait);
+        profilePage = new ProfilePage(getDriver(),getWait());
 
 
     }
 
     @Test(description = "Test edit profile success")
     public void testEditSuccess() throws InterruptedException{
-        ProfilePage profilePage = new ProfilePage(driver,wait);
+        ProfilePage profilePage = new ProfilePage(getDriver(),getWait());
 
         String phone = "067432742";
 

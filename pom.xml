@@ -20,8 +20,14 @@
 <!--        verion testNG-->
         <testng.version>7.11.0</testng.version>
 
+<!--        tên file xml-->
+        <suiteXmlFile>testng.xml</suiteXmlFile>
+
 <!--        version webdrivermanger-->
         <webdrivermanager.version>6.2.0</webdrivermanager.version>
+
+<!--        version allure report-->
+        <allure.version>2.32.0</allure.version>
 
     </properties>
 
@@ -50,7 +56,37 @@
             <scope>compile</scope>
         </dependency>
 
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>${allure.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
     </dependencies>
+
+       <build>
+           <plugins>
+                   <plugin>
+                       <groupId>org.apache.maven.plugins</groupId>
+                       <artifactId>maven-surefire-plugin</artifactId>
+                       <version>3.2.5</version>
+                       <configuration>
+                           <suiteXmlFiles>${suiteXmlFile}</suiteXmlFiles>
+                       </configuration>
+                   </plugin>
+
+                   <plugin>
+<!--                       allure maven-->
+                           <groupId>io.qameta.allure</groupId>
+                           <artifactId>allure-maven</artifactId>
+                           <version>2.15.2</version>
+                           <configuration>
+                               <reportVersion>${allure.version}</reportVersion>
+                           </configuration>
+                   </plugin>
+           </plugins>
+       </build>
 
 
 </project>

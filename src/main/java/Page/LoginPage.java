@@ -1,11 +1,13 @@
 package Page;
 
+import io.qameta.allure.Allure;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.ConfigReader;
 
 
 public class LoginPage extends BasePage {
@@ -19,34 +21,42 @@ public class LoginPage extends BasePage {
     }
 
     public void open(){
-        String url = "https://demo4.cybersoft.edu.vn/login";
-        driver.get(url);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(EMAIL_INPUT));
+        Allure.step("Open login page", () -> {
+            String url = ConfigReader.get("login.base.url");
+            driver.get(url);
+            wait.until(ExpectedConditions.visibilityOfElementLocated(EMAIL_INPUT));
+        });
     }
 
     public void enterEmail(String email) throws InterruptedException{
-        WebElement emailInput = driver.findElement(EMAIL_INPUT);
-        highLight(emailInput);
-        emailInput.sendKeys(email);
-        Thread.sleep(2000);
-        unhightlight(emailInput);
+        Allure.step("Enter email: " + email, () -> {
+            WebElement emailInput = driver.findElement(EMAIL_INPUT);
+            highLight(emailInput);
+            emailInput.sendKeys(email);
+            Thread.sleep(1000);
+            unhightlight(emailInput);
+        });
     }
 
     public void enterPassword(String password) throws InterruptedException{
-        WebElement passwordInput = driver.findElement(PASSWORD_INPUT);
-        highLight(passwordInput);
-        passwordInput.sendKeys(password);
-        Thread.sleep(2000);
-        unhightlight(passwordInput);
+        Allure.step("Enter password", () -> {
+            WebElement passwordInput = driver.findElement(PASSWORD_INPUT);
+            highLight(passwordInput);
+            passwordInput.sendKeys(password);
+            Thread.sleep(1000);
+            unhightlight(passwordInput);
+        });
     }
 
 
     public void clickloginbtn() throws  InterruptedException{
-        WebElement loginbutton = driver.findElement(LOGIN_BUTTON);
-        highLight(loginbutton);
-        loginbutton.click();
-        Thread.sleep(2000);
-        unhightlight(loginbutton);
+        Allure.step("Click login button", () -> {
+            WebElement loginbutton = driver.findElement(LOGIN_BUTTON);
+            highLight(loginbutton);
+            loginbutton.click();
+            Thread.sleep(2000);
+            unhightlight(loginbutton);
+        });
     }
 
 
