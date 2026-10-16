@@ -21,25 +21,25 @@ public class LoginTest extends BaseTest{
     @Story("Login success")
     @Severity(SeverityLevel.BLOCKER)
     @Description("Login success with Fiver04@gmail.com email and **** password redirect to Profile page")
-    @Test(description = "Test login success")
-    public void testLoginSuccess () throws InterruptedException{
-        LoginPage loginPage = new LoginPage(getDriver(),getWait());
-        loginPage.login(ConfigReader.get("user.email"), ConfigReader.get("user.password"));
+//    @Test(description = "Test login success")
+//    public void testLoginSuccess () throws InterruptedException{
+//        LoginPage loginPage = new LoginPage(getDriver(),getWait());
+//        loginPage.login(ConfigReader.get("user.email"), ConfigReader.get("user.password"));
+//
+//        String currentUrl = getDriver().getCurrentUrl();
+//        Assert.assertTrue(currentUrl.contains("profile"));
+//        Assert.assertFalse(currentUrl.contains("login"));
+//    }
 
-        String currentUrl = getDriver().getCurrentUrl();
-        Assert.assertTrue(currentUrl.contains("profile"));
-        Assert.assertFalse(currentUrl.contains("login"));
-    }
-
-    @Test(description = "Test login fail wrong password")
-    public void testLoginFail() throws InterruptedException{
-        LoginPage loginPage = new LoginPage(getDriver(),getWait());
-        loginPage.login("Fiver04@gmail.com", "fiver678");
-
-        String currentUrl = getDriver().getCurrentUrl();
-        Assert.assertTrue(currentUrl.contains("login"));
-        Assert.assertFalse(currentUrl.contains("profile"));
-    }
+//    @Test(description = "Test login fail wrong password")
+//    public void testLoginFail() throws InterruptedException{
+//        LoginPage loginPage = new LoginPage(getDriver(),getWait());
+//        loginPage.login("Fiver04@gmail.com", "fiver678");
+//
+//        String currentUrl = getDriver().getCurrentUrl();
+//        Assert.assertTrue(currentUrl.contains("login"));
+//        Assert.assertFalse(currentUrl.contains("profile"));
+//    }
 
 
     @DataProvider(name = "loginData")

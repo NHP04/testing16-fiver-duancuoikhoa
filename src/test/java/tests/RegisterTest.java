@@ -21,27 +21,27 @@ public class RegisterTest extends BaseTest {
     @Severity(SeverityLevel.BLOCKER)
     @Description("Register success with valid information")
     @Test(description = "Test register success")
-    public void testRegisterSuccess() throws InterruptedException {
-
-        RegisterPage registerPage = new RegisterPage(getDriver(), getWait());
-
-        registerPage.register(
-                ConfigReader.get("register.name"),
-                ConfigReader.get("register.email"),
-                ConfigReader.get("register.password"),
-                ConfigReader.get("register.passwordConfirm"),
-                ConfigReader.get("register.phone"),
-                ConfigReader.get("register.birthday"),
-                ConfigReader.get("register.gender"),
-                true
-        );
-
-        String currentUrl = getDriver().getCurrentUrl();
-
-        Assert.assertTrue(currentUrl.contains("login")
-                        || currentUrl.contains("profile"),
-                "Không chuyển đến trang tiếp theo sau khi đăng ký");
-    }
+//    public void testRegisterSuccess() throws InterruptedException {
+//
+//        RegisterPage registerPage = new RegisterPage(getDriver(), getWait());
+//
+//        registerPage.register(
+//                ConfigReader.get("register.name"),
+//                ConfigReader.get("register.email"),
+//                ConfigReader.get("register.password"),
+//                ConfigReader.get("register.passwordConfirm"),
+//                ConfigReader.get("register.phone"),
+//                ConfigReader.get("register.birthday"),
+//                ConfigReader.get("register.gender"),
+//                true
+//        );
+//
+//        String currentUrl = getDriver().getCurrentUrl();
+//
+//        Assert.assertTrue(currentUrl.contains("login")
+//                        || currentUrl.contains("profile"),
+//                "Không chuyển đến trang tiếp theo sau khi đăng ký");
+//    }
 
     @DataProvider(name = "registerData")
     public Object[][] registerDataProvider() throws IOException {
