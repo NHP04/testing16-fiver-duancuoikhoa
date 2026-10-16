@@ -1,0 +1,9 @@
+name,email,password,passwordConfirm,phone,birthday,gender,agree,expectedResult
+Nguyen Van B,abc@gmail.com,123456,654321,0912345679,05/21/2000,female,true,password_confirm_mismatch
+Nguyen Van C,,123456,123456,0912345680,08/15/2001,male,true,email_empty
+Nguyen Van D,invalid-email,123456,123456,0912345681,12/25/2002,female,true,email_invalid
+Nguyen Van E,nguyenvana02@gmail.com,,,0912345682,03/10/1999,male,true,password_empty
+Nguyen Van F,nguyenvana03@gmail.com,123,123,0912345683,07/19/2003,female,true,password_length
+,nguyenvana04@gmail.com,123456,123456,0912345684,09/30/2000,male,true,name_empty
+Nguyen Van G,nguyenvana05@gmail.com,123456,,0912345685,04/12/2001,female,true,password_confirm_empty
+Nguyen Van H,nguyenvana06@gmail.com,123456,123456,0912345686,,male,true,birthday_empty
